@@ -23,10 +23,11 @@ inputs:
     disable_root:
         description:
             This will disable mounting the root directory making the root input useless.
-            Use this if root files are mounted with user data directory.
+            Use this if root files should be mounted to user data directory.
         required: false
     directory:
-        description: Sets the directory that stores user data
+        description: Sets the directory that stores user data.
+            Use disable_root if you want to use the user data computer directory as root!
         required: false
     luajit:
         description: Setting this will use CraftOS-PC Accelerated (with LuaJIT) instead of default CraftOS-PC (with PUC Lua)
@@ -67,7 +68,7 @@ inputs:
 
 runs:
     using: docker
-    image: docker://ghcr.io/commandcracker/craftos-pc-action-image:f8735a48f6c4accfe2f2452fb852b77e75040efa
+    image: docker://ghcr.io/commandcracker/craftos-pc-action-image:c2647cb2f13ffba5a672f447c317cb56eb2ac5ac
     env:
         TIMEOUT: ${{inputs.timeout}}
         OPTIONS: ${{inputs.options}}
